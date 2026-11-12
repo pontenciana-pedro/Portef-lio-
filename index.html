@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-AO">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ponteciana Pedro | Portefólio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#eef2f7; --surface:#ffffff; --ink:#14213d; --muted:#4a5a78;
+  --blue:#2f5d9f; --yellow:#f2b705; --line:#c9d3e3; --grid:rgba(47,93,159,.09);
+  color-scheme:light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0e1626; --surface:#162238; --ink:#e8eef8; --muted:#a3b2cc;
+    --blue:#7fa8e6; --yellow:#f2b705; --line:#2a3a57; --grid:rgba(127,168,230,.08);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0e1626; --surface:#162238; --ink:#e8eef8; --muted:#a3b2cc;
+  --blue:#7fa8e6; --yellow:#f2b705; --line:#2a3a57; --grid:rgba(127,168,230,.08);
+  color-scheme:dark;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:"Figtree",system-ui,sans-serif;font-size:1.05rem;line-height:1.65;
+}
+h1,h2,h3{font-family:"Bricolage Grotesque",Georgia,sans-serif;line-height:1.1;margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--yellow);outline-offset:3px}
+.wrap{max-width:900px;margin:0 auto;padding:0 1.25rem}
+
+header.top{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.25rem 0;flex-wrap:wrap}
+header.top strong{font-family:"Bricolage Grotesque",sans-serif;font-size:1.15rem}
+nav{display:flex;gap:1.1rem;flex-wrap:wrap}
+nav a{text-decoration:none;color:var(--muted);font-weight:500}
+nav a:hover{color:var(--ink);text-decoration:underline;text-decoration-color:var(--yellow);text-decoration-thickness:3px;text-underline-offset:5px}
+
+.hero{
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:32px 32px;
+  border-bottom:1px solid var(--line);
+  padding:4rem 0 4.5rem;
+}
+.hero h1{font-size:clamp(2.8rem,10vw,5.6rem);font-weight:800;letter-spacing:-.03em}
+.hero h1 span{display:block;background:linear-gradient(transparent 62%,var(--yellow) 62%,var(--yellow) 90%,transparent 90%);width:fit-content}
+.hero p{max-width:34rem;color:var(--muted);font-size:1.2rem;margin:1.5rem 0 2rem}
+.btn{display:inline-block;padding:.8rem 1.4rem;border-radius:6px;font-weight:600;text-decoration:none;border:2px solid var(--ink)}
+.btn.main{background:var(--ink);color:var(--bg)}
+.btn.main:hover{background:var(--blue);border-color:var(--blue)}
+.btn.alt{margin-left:.5rem}
+.btn.alt:hover{background:var(--yellow);border-color:var(--yellow);color:#14213d}
+
+section{padding:3.5rem 0}
+section h2{font-size:clamp(1.9rem,5vw,2.6rem);margin-bottom:1.25rem}
+.about{display:grid;gap:1.5rem}
+.about p{max-width:38rem;margin:0}
+
+.chips{list-style:none;display:flex;gap:.6rem;flex-wrap:wrap;padding:0;margin:1.25rem 0 0}
+.chips li{padding:.3rem .9rem;border:2px solid var(--blue);border-radius:999px;font-weight:600;background:var(--surface)}
+button.btn{font:inherit;font-weight:600;cursor:pointer}
+.add{margin-bottom:1.25rem}
+.form{display:grid;gap:1rem;max-width:34rem;margin:0 0 2rem;padding:1.25rem;background:var(--surface);border:1px solid var(--line);border-radius:6px}
+.form[hidden]{display:none}
+.form label{display:grid;gap:.3rem;font-weight:600}
+.form input,.form textarea{font:inherit;font-weight:400;padding:.6rem .7rem;border:1px solid var(--line);border-radius:4px;background:var(--bg);color:var(--ink)}
+.levels{display:grid;gap:.9rem;max-width:34rem}
+.level{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:.9rem 1.1rem;background:var(--surface);border:1px solid var(--line);border-left:6px solid var(--blue);border-radius:4px}
+.level b{font-weight:600}
+.level small{color:var(--muted)}
+.level.start{border-left-color:var(--yellow)}
+
+.projects{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:1.4rem}
+.card h3{font-size:1.3rem;margin-bottom:.5rem}
+.card p{margin:0;color:var(--muted);font-size:1rem}
+.card.soon{background:var(--surface)}
+
+.contact{background:var(--ink);color:var(--bg)}
+.contact h2{color:var(--bg)}
+.contact p{max-width:32rem;margin:0 0 1.5rem}
+.contact a.mail{display:inline-block;font-family:"Bricolage Grotesque",sans-serif;font-size:1.4rem;font-weight:700;color:var(--yellow);overflow-wrap:anywhere}
+footer{padding:1.5rem 0;color:var(--muted);font-size:.95rem}
+@media (max-width:480px){.btn.alt{margin:.6rem 0 0}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="top">
+    <strong>Ponteciana Pedro</strong>
+    <nav aria-label="Principal">
+      <a href="#sobre">Sobre mim</a>
+      <a href="#aprender">A aprender</a>
+      <a href="#projectos">Projectos</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+</div>
+
+<main>
+  <div class="hero">
+    <div class="wrap">
+      <h1>Ponteciana <span>Pedro</span></h1>
+      <ul class="chips"><li>IPIL</li><li>Sala 52</li><li>Turma IG12A</li></ul>
+      <p>Estudante do IPIL, a dar os primeiros passos na programação e com vontade de aprender mais a cada semana.</p>
+      <a class="btn main" href="#projectos">Ver o que já fiz</a>
+      <a class="btn alt" href="#contacto">Falar comigo</a>
+    </div>
+  </div>
+
+  <section id="sobre">
+    <div class="wrap about">
+      <h2>Sobre mim</h2>
+      <p>Olá! Sou a Ponteciana e estudo no IPIL, o Instituto Politécnico Industrial de Luanda. A programação é nova para mim, mas gosto de perceber como as coisas funcionam por dentro e de construir algo com as minhas próprias mãos.</p>
+      <p>Ainda não sei tudo, e não faz mal. Este portefólio é o meu ponto de partida: vou juntando aqui o que aprendo e o que consigo fazer.</p>
+    </div>
+  </section>
+
+  <section id="aprender" style="background:var(--surface);border-block:1px solid var(--line)">
+    <div class="wrap">
+      <h2>O que estou a aprender</h2>
+      <div class="levels">
+        <div class="level"><b>HTML</b><small>Já sei o básico</small></div>
+        <div class="level"><b>CSS</b><small>Já sei o básico</small></div>
+        <div class="level"><b>Python</b><small>Já sei o básico</small></div>
+        <div class="level"><b>Lógica de programação</b><small>Já sei o básico</small></div>
+        <div class="level start"><b>JavaScript</b><small>A começar</small></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projectos">
+    <div class="wrap">
+      <h2>Projectos</h2>
+      <button class="btn main add" id="abrir" type="button">Adicionar projecto</button>
+      <form id="form" class="form" hidden>
+        <label>Nome do projecto <input id="t" required maxlength="60"></label>
+        <label>Descrição <textarea id="d" required maxlength="200" rows="3"></textarea></label>
+        <button class="btn main" type="submit">Guardar projecto</button>
+      </form>
+      <div class="projects">
+        <article class="card">
+          <h3>Este portefólio</h3>
+          <p>A minha primeira página feita com HTML e CSS, para me apresentar e guardar o meu trabalho.</p>
+        </article>
+        <article class="card soon">
+          <h3>Calculadora em Python</h3>
+          <p>Um programa simples que soma, subtrai, multiplica e divide dois números, feito para praticar lógica de programação.</p>
+        </article>
+        <article class="card soon">
+          <h3>Jogo de adivinhar o número</h3>
+          <p>Em Python, o computador escolhe um número e eu tento acertar com ajuda de dicas: maior ou menor.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto" class="contact">
+    <div class="wrap">
+      <h2>Contacto</h2>
+      <p>Queres falar comigo, propor um trabalho em grupo ou dar uma dica? Escreve-me.</p>
+      <a class="mail" href="mailto:pedroponteciana9@gmail.com">pedroponteciana9@gmail.com</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">© <span id="ano">2026</span> Ponteciana Pedro, estudante do IPIL, Sala 52, Turma IG12A</div>
+</footer>
+
+<script>
+document.getElementById("ano").textContent = new Date().getFullYear();
+
+var lista = document.querySelector(".projects");
+var form = document.getElementById("form");
+var guardados = [];
+try { guardados = JSON.parse(localStorage.getItem("projectos") || "[]"); } catch (e) {}
+
+document.getElementById("abrir").onclick = function () { form.hidden = !form.hidden; };
+
+function criar(p) {
+  var a = document.createElement("article");
+  a.className = "card";
+  var h = document.createElement("h3"); h.textContent = p.titulo;
+  var d = document.createElement("p"); d.textContent = p.desc;
+  a.append(h, d);
+  lista.appendChild(a);
+}
+guardados.forEach(criar);
+
+form.onsubmit = function (e) {
+  e.preventDefault();
+  var p = { titulo: document.getElementById("t").value, desc: document.getElementById("d").value };
+  criar(p); guardados.push(p);
+  try { localStorage.setItem("projectos", JSON.stringify(guardados)); } catch (e) {}
+  form.reset(); form.hidden = true;
+};
+</script>
+</body>
+</html>
